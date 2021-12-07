@@ -1,13 +1,16 @@
-function Card ({ imagem, titulo, contexto, pubData}) {
+function Card ({ imagem, titulo, contexto, pubData, link}) {
     return (
-        <div class="card my-3 mx-3">
-            <img src={imagem} class="card-img-top" alt="..."/>
-            <div class="card-body">
-                <h5 class="card-title">{titulo}</h5>
-                <p class="card-text">{contexto}</p>
-                <p class="card-text"><small class="text-muted">{pubData}</small></p>
+        <>
+        <div className="card my-4 mx-4 shadow rounded-2">
+            <img src={imagem} className="card-img-top" alt="..."/>
+            <div className="card-body">
+                <h5 className="card-title">{titulo}</h5>
+                <p className="card-text">{contexto}</p>
+                <a href={link} target="_blank" rel="noreferrer"><button type="button" className="btn btn-primary">Acessar</button></a>
+                <p className="card-text my-1"><small className="text-muted">published: {pubData}</small></p>
             </div>
         </div>
+        </>
     )
 }
 

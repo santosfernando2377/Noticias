@@ -1,39 +1,35 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import List from "./list";
 
-function Header () {
-
-const [Filtro, setFiltro] = useState();
-const url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=a2817a81c5604e7ebe75f58384990bea"
-
-    useEffect(() =>{
-        axios.get(url)
-        .then((response) =>{
-            Filtro(response.data)
-        })
-        .catch((error) =>{
-            console.log(error);
-        })
-    })
-
-    console.log(Filtro)
+function Header() {
 
     return (
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Eighth navbar example">
-            <div class="container">
-                <a class="navbar-brand" href="/">News Dev</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <>
 
-                <div class="collapse navbar-collapse" id="navbarsExample07">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0"/>
-                    <form>
-                        <input class="form-control" type="text" placeholder="Search" aria-label="Search" onChange={(event) => setFiltro(event.target.value)}/>
-                    </form>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm" aria-label="Eighth navbar example">
+                <div className="container">
+                    <a className="navbar-brand" href="/">Notícias</a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div className="collapse navbar-collapse" id="navbarsExample07">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="dropdown06" data-bs-toggle="dropdown" aria-expanded="false">Categoria</a>
+                            <ul className="dropdown-menu" aria-labelledby="dropdown06">
+                                <li><a className="dropdown-item" href="#">Brasil</a></li>
+                                <li><a className="dropdown-item" href="#">Negócios</a></li>
+                                <li><a className="dropdown-item" href="#">Tecnologia</a></li>
+                                <li><a className="dropdown-item" href="#">Entretenimento</a></li>
+                                <li><a className="dropdown-item" href="#">Saúde</a></li>
+                            </ul>
+                        </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+            <List></List>
+        </>
     )
 }
 
